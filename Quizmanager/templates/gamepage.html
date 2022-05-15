@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game! Level {{Level}}</title>
+</head>
+<body>
+
+    <h1>
+        Quiz Game!
+    </h1>
+
+    <h2>{{Player.name}} is Playing!</h2>
+    <h2>Current score: {{Player.score}}</h2>
+
+    <h1>Question {{Questionnum}} || {{Question.category}}:</h1>
+
+        <h2>{{Question.text}}</h2>
+
+        <ul>
+        {%for a in Answers%}
+            <form action="/answercheck" method="POST"> {% csrf_token %}
+
+                <li><button type="submit">{{a}}</button></li>
+
+                <input type="hidden" name="answer"      value="{{a}}">
+                <input type="hidden" name="questionid"  value="{{Question.id}}">
+                <input type="hidden" name="playername"  value="{{Player.name}}">
+                <input type="hidden" name="level"       value="{{Level}}">
+                <input type="hidden" name="questionnum" value="{{Questionnum}}">
+
+            </form>
+        {% endfor %}
+        </ul>
+    
+    <h2>Press the button to give up...!</h2>
+    <a href="/endgame"><button>ENDGAME.</button></a>
+    
+</body>
+</html>

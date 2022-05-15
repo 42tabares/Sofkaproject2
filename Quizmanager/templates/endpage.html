@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game! ENDPAGE</title>
+</head>
+<body>
+
+    <h1>
+        END OF THE GAME, SCORE = {{Player.score}}
+    </h1>
+
+    {% if Won %}
+
+        <img src="https://cdn.vox-cdn.com/thumbor/zz6-LT3BtKPEgyjTwreXhPrr-VQ=/0x0:759x609/1200x800/filters:focal(303x127:423x247)/cdn.vox-cdn.com/uploads/chorus_image/image/65787572/_JRobles71_2019_Nov_25.0.jpg">
+
+        <h1>You have won! you can now tell your friends about how nerdy you are</h1>
+        <p>or brag about how well you can search on google...</p>
+    
+    {% elif not Lost %}
+
+        <h1>It's wise to know when to step down, perhaps next time you can beat the Prince's score!</h1>
+
+    {% else %}
+
+        <h1>Sorry, at least you now know what not to answer!</h1>
+    
+    {% endif %}
+
+    <a href="/">Back to Mainpage</a>
+
+
+</body>
+</html>
