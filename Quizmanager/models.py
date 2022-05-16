@@ -1,5 +1,3 @@
-from multiprocessing.connection import answer_challenge
-from subprocess import CalledProcessError
 from django.db import models
 from random import randint
 
@@ -21,11 +19,5 @@ class Question(models.Model):
     answer4     = models.CharField(max_length=50)
     called      = models.BooleanField(default="False")
 
-    def getrandom(self, difficulty):
-        QSet = self.objects.filter(called = False, difficulty = difficulty)
-        Question = QSet.objects.order_by('?').first()
-        Question.called = True
-        Question.save()
-        return Question
-        
+ 
 

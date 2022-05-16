@@ -5,6 +5,7 @@ from django.urls import path
 urlpatterns = [
     path('', startpage),
     path('startgame/', startgame),
-    path('lvl/<level>/<player>/<questionnum>', gamepage),
-    path('endgame/', endpage)
+    path('answercheck/', answercheck),
+    path('lvl/<level>/<player>/<questionnum>/', gamepage),
+    path('endgame/<player>/<level>/', endpage)
 ]
